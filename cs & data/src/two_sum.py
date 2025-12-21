@@ -1,3 +1,11 @@
+'''
+Problem Statement: Given an array of integers nums and an integer target, 
+                    return indices of the two numbers such that they add up to target.
+
+LC1: https://leetcode.com/problems/two-sum
+     Slight variance because I am using random function to generate nums and target. 
+     Using a predfined nums ands target, its exactly the same LeetCode problem.                    
+'''
 import random
 
 # Brute Force: Loop through the list in two nested loops
@@ -27,12 +35,12 @@ def twoSum_Approach2(nums: list[int], target: int) -> list[int]:
 
 
 # CODE TO CALL FUNCTIONS
-nums = [3, 2, 4]
-target = 6
+nums = [random.randint(-5, 5) for _ in range(6)]
+target = random.randint(-5, 5)
 answer = twoSum_Approach1(nums, target)
-print(f"{answer=}")
+print(f"{nums=} {target=} {answer=}")
 
-nums = [3, 2, 4, 10, 6]
-target = 9
+nums = [random.randint(-5, 5) for _ in range(6)]
+target = random.randint(-5, 5)
 answer = twoSum_Approach2(nums, target)
-print(f"{answer=}")
+print(f"{nums=} {target=} {answer=}")
