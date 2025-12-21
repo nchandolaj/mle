@@ -2,14 +2,15 @@
 
 *Focus: Understanding Space-Time Trade-offs in your algorithms.*
 
+
 ## What is it?
 The **Space-Time Trade-off** is a fundamental concept in computer science where you reduce the **time** it takes to run an algorithm by consuming more **memory (space)**, or vice-versa.
 
 **Time is money**. You are almost always expected to sacrifice some memory (RAM) to make your code run faster.
 
 **The Core Principle**
-- **Time Complexity:** How many operations the CPU performs. (We want to minimize this).
-- **Space Complexity:** How much RAM your algorithm holds while running. We are okay with using more of this, within reason.
+- **Time Complexity (T):** How many operations the CPU performs. We want to minimize this.
+- **Space Complexity (S):** How much RAM your algorithm holds while running. We are okay with using more of this, within reason.
 
 ## Common Real-World Space-Time Trade-Offs
 
@@ -41,7 +42,7 @@ This is the inverse trade-off. You make the computer work very hard to "squish" 
 * **Scenario:** Sending a `.zip` file or streaming a Netflix movie.
 * **The Process:** The sender uses CPU time to compress; the receiver uses CPU time to decompress. The "win" is that the data traveled faster over the internet.
 
-## Comparison Table: Choosing Your Trade-Off
+### Comparison Table: Choosing Your Trade-Off
 | Strategy | Goal | Pay With... | Gain... |
 | :--- | :--- | :--- | :--- |
 | **Caching** | Faster Apps | RAM | Lower Latency |
@@ -49,7 +50,9 @@ This is the inverse trade-off. You make the computer work very hard to "squish" 
 | **Compression** | Smaller Files | CPU Time | More Storage |
 | **On-the-fly** | Low-power Tech | Processing Time | Minimal Memory |
 
+
 # References
 * [**The Big O Notation**](https://github.com/nchandolaj/mle/blob/main/cs%20&%20data/docs/big_o_notation.md): Discuss Time vs. Space complexity. Understand why $O(1) < O(\log n) < O(n) < O(n \log n) < O(n^2) < O(n!)$.
+* [**Two-Sum Problem**](https://github.com/nchandolaj/mle/blob/main/cs%20&%20data/docs/two_sum_problem.md): Discuss Space-Time Trade-offs with different approaches to solve the problem.
 
 **Note:** Space-Time Trade-off is a sub-topic of [**The Pythonic Standard**](https://github.com/nchandolaj/mle/blob/main/cs%20%26%20data/docs/the_pythonic_standard.md) discussion.
