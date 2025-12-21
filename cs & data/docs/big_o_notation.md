@@ -161,3 +161,7 @@ def create_grudge_map(people):
         grid.append(row)
     return grid
 ```
+
+# References
+To continue your learning journey on this topic, please be sure to visit the following links:
+- https://www.bigocheatsheet.com/
