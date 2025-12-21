@@ -1,6 +1,6 @@
 # The Space-Time Trade-off
 
-This sub-topic is part of [**The Pythonic Standard**](https://github.com/nchandolaj/mle/blob/main/cs%20%26%20data/docs/the_pythonic_standard.md) discussion.
+*Focus: Understanding Space-Time Trade-offs in your algorithms.*
 
 ## What is it?
 The **Space-Time Trade-off** is a fundamental concept in computer science where you reduce the **time** it takes to run an algorithm by consuming more **memory (space)**, or vice-versa.
@@ -51,3 +51,5 @@ This is the inverse trade-off. You make the computer work very hard to "squish" 
 
 # References
 * [**The Big O Notation**](https://github.com/nchandolaj/mle/blob/main/cs%20&%20data/docs/big_o_notation.md): Discuss Time vs. Space complexity. Understand why $O(1) < O(\log n) < O(n) < O(n \log n) < O(n^2) < O(n!)$.
+
+**Note:** Space-Time Trade-off is a sub-topic of [**The Pythonic Standard**](https://github.com/nchandolaj/mle/blob/main/cs%20%26%20data/docs/the_pythonic_standard.md) discussion.
