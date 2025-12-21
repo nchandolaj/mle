@@ -1,6 +1,6 @@
 # Big O Notation
 
-This sub-topic is part of [**The Pythonic Standard**](https://github.com/nchandolaj/mle/blob/main/cs%20%26%20data/docs/the_pythonic_standard.md) discussion.
+*Focus: Understanding Time-Space Complexity to guide and measure your algorithm design.*
 
 ### What is it?
 
@@ -165,3 +165,5 @@ def create_grudge_map(people):
 # References
 To continue your learning journey on this topic, please be sure to visit the following links:
 - https://www.bigocheatsheet.com/
+
+**Note** Big-O Notation is a sub-topic of [**The Pythonic Standard**](https://github.com/nchandolaj/mle/blob/main/cs%20%26%20data/docs/the_pythonic_standard.md) discussion.
