@@ -49,3 +49,5 @@ This is the inverse trade-off. You make the computer work very hard to "squish" 
 | **Compression** | Smaller Files | CPU Time | More Storage |
 | **On-the-fly** | Low-power Tech | Processing Time | Minimal Memory |
 
+# References
+* [**The Big O Notation**](https://github.com/nchandolaj/mle/blob/main/cs%20&%20data/docs/big_o_notation.md): Discuss Time vs. Space complexity. Understand why $O(1) < O(\log n) < O(n) < O(n \log n) < O(n^2) < O(n!)$.
