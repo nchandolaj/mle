@@ -6,7 +6,7 @@
 
 Think of **Big O Notation** not as a math equation, but as a "Stress Test for Reality." It **measures** how much a system "freaks out" as you give it more work to do. 
 
-In programming, $n$ represents the number of items you’re dealing with. Big O describes the relationship between that $n$ and the resources (usually **compute time**, but can also be **compute space**) required to finish the job (by the algorithm).
+In programming, $n$ represents the number of items you’re dealing with. Big O describes the relationship between that $n$ and the resources, usually **time** (CPU cycles) but can also be **space**(memory/RAM), used by the algorithm to finish the job.
 
 ### Time Complexity
 
