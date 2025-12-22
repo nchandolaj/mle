@@ -1,7 +1,8 @@
 # 16-Week Plan to becoming an effective Machine Learning Engineer (MLE)
 
 We move beyond *cramming definitions* to building **first-principles intuition** and **production-level engineering skills**—both of which are critical to becoming an effective MLE.</br>
-**Note:** A few topics and suggestions have been added under **Phase IV** and **Deep Dive: Specific Topic Expansions** sections, so this plan can help with **MLE Interview Preparation**.
+
+>**Note:** A few topics and suggestions have been added under **Phase IV** and **Deep Dive: Specific Topic Expansions** sections, so this plan can help with **MLE Interview Preparation**.
 
 ---
 
