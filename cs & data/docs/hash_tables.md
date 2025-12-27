@@ -70,3 +70,9 @@ In low-level systems programming (like C), developers may manually define the in
 * **Database Indexing:** To quickly locate records without scanning entire tables.
 * **Caching:** Storing web page data or API responses for instant
 
+# Hash Map Vs Hash Tables
+
+While the terms are often used interchangeably in casual conversation, the technical distinction usually depends on the specific programming language (like Java) or the underlying implementation strategy.
+
+## Summary for Python Users
+In Python, this distinction (betweeh 'Hash Map' & 'Hash Tables') is largely irrelevant. Python only has the 'dict' (dictionary) type. Under the hood, Python’s 'dict' is a **highly optimized hash table** that uses **Open Addressing** rather than Chaining. It is not thread-safe for complex operations (though individual atomic operations are protected by the Global Interpreter Lock, or GIL).
