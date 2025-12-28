@@ -80,7 +80,7 @@ When a collision occurs in Python:
 Since version 3.6, Python changed how its hash table is structured to be more memory-efficient. It now uses two arrays instead of one:
 
 1.  **The Hash Indices (Sparse Array):** A small array that only stores the "indices" of where the data lives.
-2.  **The Entry Array (Dense Array):** A separate array that stores the actual `hash`, `key`, and `value` in the order they were inserted.
+2.  **The Entry Array (Dense Array):** A separate array that stores the `hash`, `key` (pointer), and `value` (pointer) *in the order they were inserted*. The actual `key` and `value` are stored in the `heap`.
 
 **This shift is why Python dictionaries now preserve insertion order.** Because the entries are stored in a dense list as they arrive, iterating through the dict simply means walking through that list.
 
