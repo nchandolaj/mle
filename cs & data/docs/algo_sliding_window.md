@@ -57,15 +57,7 @@ def min_subarray_len(target, nums):
     return res if res != float('inf') else 0
 ```
 
-## 4. MLE Relevance: Data Streams & Time-Series
-In Machine Learning Engineering (MLE), the sliding window mimics how we handle **streaming data:**
-
-* **Feature Engineering:** Calculating a "rolling average" of stock prices over the last 24 hours.
-* **Stride in CNNs:** Convolutional Neural Networks use a sliding window (kernel) to extract features from images.
-* **Anomaly Detection:** Monitoring a data stream for spikes within a specific time window.
-
-
-## 5. When to use Sliding Window vs. Opposite Ends
+## 4. When to use Sliding Window vs. Opposite Ends
 | Scenario | Pattern |
 | :--- | :--- |
 | Find a pair in a **sorted** array | **Opposite Ends** (L at 0, R at end) |
@@ -77,5 +69,85 @@ In Machine Learning Engineering (MLE), the sliding window mimics how we handle *
 
 ### Key Takeaway
 The "Window" represents the **current state** you are tracking. By moving the pointers, you update that state in $O(1)$ time rather than re-scanning the whole window, leading to an overall $O(n)$ complexity.
+
+---
+
+# MLE Relevance: Data Streams & Time-Series
+In Machine Learning Engineering (MLE), the sliding window mimics how we handle **streaming data:**
+
+* **Feature Engineering:** Calculating a "rolling average" of stock prices over the last 24 hours.
+* **Stride in CNNs:** Convolutional Neural Networks use a sliding window (kernel) to extract features from images.
+* **Anomaly Detection:** Monitoring a data stream for spikes within a specific time window.
+
+## Time-Series Data Stream 
+In the context of software engineering and Machine Learning (MLE), **time-series data streams** represent a continuous flow of data points indexed in chronological order. Unlike a static database, a stream is "infinite"—you process data as it arrives.
+
+The **Sliding Window** pattern is the primary tool used to make sense of this infinite flow.
+
+## 1. What makes it a "Stream"?
+A stream has three distinct characteristics that require specific algorithmic approaches:
+1.  **Temporal Dependency:** The value at $T_n$ is often related to the value at $T_{n-1}$.
+2.  **Volatility:** Data arrives at high velocity; you cannot afford $O(n^2)$ operations because the "window" of time to process each point is tiny.
+3.  **Unboundedness:** You cannot see the "end" of the data, so algorithms must be able to summarize the past without storing everything.
+
+## 2. Sliding Windows in Streams
+When dealing with streams, we use sliding windows to transform raw data into **features** for ML models.
+
+### **A. Rolling Aggregates (Fixed Window)**
+This is used for "smoothing" noise or calculating trends.
+* **Example:** A 5-minute rolling average of CPU usage.
+* **Implementation:** As a new packet arrives (Right pointer expands), the packet from 5 minutes ago is dropped (Left pointer shrinks).
+
+### **B. Sessionization (Variable Window)**
+This is used to group related events that occur close together.
+* **Example:** A user’s "session" on a website.
+* **Logic:** The window stays open as long as the user clicks something every 30 seconds. If they stop for more than 30 seconds (constraint violated), the window "shrinks" (closes) and a new session begins.
+
+## 3. The "State" Hurdle in MLE
+In standard LeetCode problems, your "window" is usually just an array in memory. In a real-time stream (like Kafka or Flink), the **State** is the biggest hurdle.
+
+| Challenge | Description | Sliding Window Solution |
+| :--- | :--- | :--- |
+| **Out-of-Order Data** | Data arrives late due to network lag. | **Watermarking:** Keeping the window "open" slightly longer to catch late data. |
+| **Memory Management** | Storing millions of events is impossible. | **Aggregating on the fly:** Instead of storing all numbers, only store the `sum` and `count`. |
+| **Concept Drift** | The patterns in the data change over time. | **Weighted Windows:** Giving more importance (weight) to newer data in the window. |
+
+## 4. Practical Python Example: Simple Data Stream
+This simulates a stream where we calculate a rolling average using $O(1)$ per new data point.
+
+```python
+class StreamProcessor:
+    def __init__(self, window_size):
+        self.k = window_size
+        self.window = []
+        self.current_sum = 0
+
+    def next(self, val):
+        # 1. Expand (Include new data)
+        self.window.append(val)
+        self.current_sum += val
+        
+        # 2. Shrink (Remove old data once window > k)
+        if len(self.window) > self.k:
+            outgoing = self.window.pop(0)
+            self.current_sum -= outgoing
+            
+        # 3. Output (Average)
+        return self.current_sum / len(self.window)
+
+# Simulated Stream
+stream = [10, 20, 30, 40, 50]
+proc = StreamProcessor(window_size=3)
+for val in stream:
+    print(f"New data: {val}, Rolling Avg: {proc.next(val)}")
+```
+
+## 5. Summary Table: Streaming Patterns
+
+| Pattern | Goal | MLE Use Case |
+| :--- | :--- | :--- |
+| **Tumbling Window** | Non-overlapping fixed chunks | Hourly reporting / billing |
+| **Sliding Window** | Overlapping fixed chunks | Real-time monitoring / Trend detection |
+| **Session Window** | Data-driven variable chunks | User behavior analysis |
 
 
