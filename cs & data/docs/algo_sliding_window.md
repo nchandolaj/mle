@@ -57,14 +57,25 @@ def min_subarray_len(target, nums):
     return res if res != float('inf') else 0
 ```
 
-## 4. When to use Sliding Window vs. Opposite Ends
+## 4. MLE Relevance: Data Streams & Time-Series
+In Machine Learning Engineering (MLE), the sliding window mimics how we handle **streaming data:**
+
+* **Feature Engineering:** Calculating a "rolling average" of stock prices over the last 24 hours.
+* **Stride in CNNs:** Convolutional Neural Networks use a sliding window (kernel) to extract features from images.
+* **Anomaly Detection:** Monitoring a data stream for spikes within a specific time window.
+
+
+## 5. When to use Sliding Window vs. Opposite Ends
 | Scenario | Pattern |
 | :--- | :--- |
 | Find a pair in a **sorted** array | **Opposite Ends** (L at 0, R at end) |
 | Check if a string is a **palindrome** | **Opposite Ends** (L at 0, R at end) |
 | Find a **subarray** or **substring** | **Sliding Window** (L and R move right) |
 | "Longest/Shortest" string constraints | **Sliding Window** (Dynamic) |
-
+| **MLE:** Rolling 7-day average | **Sliding Window** (Fixed Window K. L and R move right) |
+| **MLE:** Find the shortest burst of error logs | **Sliding Window** (Dynamic) |
 
 ### Key Takeaway
 The "Window" represents the **current state** you are tracking. By moving the pointers, you update that state in $O(1)$ time rather than re-scanning the whole window, leading to an overall $O(n)$ complexity.
+
+
