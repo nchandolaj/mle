@@ -1,4 +1,4 @@
-# Numpy Package
+# NumPy: Numerical Python
 
 Think of **NumPy** (Numerical Python) as the "supercharged version" of Python lists. While standard Python lists are great for general use, they become very slow when you're dealing with thousands or millions of numbers. 
 
